@@ -1,0 +1,11 @@
+class Estudiante{
+    String nombre
+    def dni
+    int edad
+    String ciudadNatal
+    def calificacion
+}
+
+class Curso{
+    
+}
