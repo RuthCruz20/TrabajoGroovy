@@ -14,14 +14,17 @@ class Estudiante{
    
 }
 
-class Curso extends Estudiante{
-    def lista=[]
+class Curso{
+    def Curso(){
+    
+    }
     //ejercicio 1
     
     
     //ejercicio2
-    def agregarEstudiante(unEstudiante){
-    
+    void agregarEstudiante(listaCurso, unEstudiante){
+         //listaCurso += unEstudiante
+         listaCurso.add(unEstudiante)
     }
     
     //ejercicio 3
@@ -67,9 +70,28 @@ class Curso extends Estudiante{
     
 }
  static main(args){
-        def estudiante1 = new Estudiante('a1',123,12,'cbba',66)
-        def estudiante2 = new Estudiante('a2',123,12,'cbba',66)
-        def estudiante3 = new Estudiante('a3',123,12,'cbba',66)
-        println estudiante3.getNombre()
+        def curso1 = new Curso()
+        def listaCurso = []
+        def estudiante1 = new Estudiante('a_1',123,12,'Oruro',87)
+        def estudiante2 = new Estudiante('a_2',222,22,'Cbba',36)
+        def estudiante3 = new Estudiante('a_3',321,23,'Tucuman',66)
+       
+        println estudiante2.getNombre()
+        
+        listaCurso += [estudiante1,estudiante2]
+        println listaCurso.get(0).getNombre()
+        
+        //agregarEstudiante
+        curso1.agregarEstudiante(listaCurso, estudiante3)
+        def estudiante4 = new Estudiante('a_4',344,19,'Salta',66)
+        curso1.agregarEstudiante(listaCurso, estudiante4)
+        print "Iteracion dentro de la lista = "+" "
+        for(i = 0; i < listaCurso.size(); i++){
+             print listaCurso.get(i).getCiudadNatal() + " "
+        }
+        println ""
+        println "Longitud lista = "+ listaCurso.size()
+        println ''
+        println listaCurso.get(3).getNombre()
         
     }
