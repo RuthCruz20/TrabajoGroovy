@@ -15,9 +15,13 @@ class Estudiante{
 }
 
 class Curso extends Estudiante{
-    def lista=[]
+    def Curso (){}
     //ejercicio 1
-    
+    def resetearNotas(listaEst){
+        for(int i=0; i < listaEst.size(); i++){
+        listaEst.get(i).setCalificacion(0)
+        }
+    }
     
     //ejercicio2
     def agregarEstudiante(unEstudiante){
@@ -67,9 +71,14 @@ class Curso extends Estudiante{
     
 }
  static main(args){
+        def curso = new Curso()
         def estudiante1 = new Estudiante('a1',123,12,'cbba',66)
         def estudiante2 = new Estudiante('a2',123,12,'cbba',66)
         def estudiante3 = new Estudiante('a3',123,12,'cbba',66)
         println estudiante3.getNombre()
-        
+        println estudiante3.getCalificacion()
+        def listaEstudiantes=[]
+        listaEstudiantes += [estudiante1, estudiante2, estudiante3]
+        println curso.resetearNotas(listaEstudiantes)
+        println listaEstudiantes.get(1).getCalificacion()
     }
