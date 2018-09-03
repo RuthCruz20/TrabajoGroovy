@@ -4,9 +4,12 @@ class Estudiante{
     int edad
     String ciudadNatal
     def calificacion
+    static main(args){
+    
+    }
 }
 
-class Curso{
+class Curso extends Estudiante{
     
     
 }
