@@ -1,18 +1,28 @@
 class Estudiante{
-    String nombre = "yo";
+    String nombre 
     def dni
     int edad
     String ciudadNatal
     def calificacion
+    def Estudiante(nombre,dni,edad,ciudadNatal,calificacion){
+        this.nombre=nombre
+        this.dni=dni
+        this.edad=edad
+        this.ciudadNatal=ciudadNatal
+        this.calificacion=calificacion
+    }
    
 }
 
 class Curso extends Estudiante{
+    def lista=[]
     //ejercicio 1
     
     
     //ejercicio2
+    def agregarEstudiante(unEstudiante){
     
+    }
     
     //ejercicio 3
     
@@ -57,7 +67,9 @@ class Curso extends Estudiante{
     
 }
  static main(args){
-        def prueba = new Curso()
-        println prueba.estudiantesAprobados()
+        def estudiante1 = new Estudiante('a1',123,12,'cbba',66)
+        def estudiante2 = new Estudiante('a2',123,12,'cbba',66)
+        def estudiante3 = new Estudiante('a3',123,12,'cbba',66)
+        println estudiante3.getNombre()
+        
     }
-
