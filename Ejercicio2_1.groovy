@@ -30,12 +30,7 @@ class Curso{
     //ejercicio 4
     
     
-    //ejercicio 5
-<<<<<<< HEAD
-    
-    def estudiantesAprobados(){
-        "hello $nombre"
-=======
+    //ejercicio 5   
     def estudiantesAprobados(lista){
         def aprobados =[]
         int i=0,l=lista.size()
@@ -45,7 +40,6 @@ class Curso{
              }
         }
         aprobados
->>>>>>> 87fd05d3c81e2c43f060d61a19ddd74d94262a4f
     }
     //ejercicio 6
     
@@ -90,11 +84,22 @@ class Curso{
     
     
     //ejercicio 13
-    
-    
+    def ciudadesExceptoCatamarca(){
+        
+    }
     //ejercicio 14
-    
-    
+    def unDesastre(listaCurso){
+        boolean desastre = false
+        int cantEstudiantes = listaCurso.size()
+        int cantAprobados = this.estudiantesAprobados(listaCurso).size()
+        int cantDesaprobados = cantEstudiantes - cantAprobados 
+        if(cantDesaprobados == cantEstudiantes){
+            desastre = true
+        }else{
+            desastre = false
+        }
+        println "Desastre: " + desastre
+    }
     //ejercicio 15
     
     
@@ -135,5 +140,6 @@ class Curso{
         curso1.existeEstudianteConNotaDiez(listaCurso)
         
         curso1.promedioDeCalificaciones(listaCurso)
+        curso1.unDesastre(listaCurso)
         
     }
