@@ -36,10 +36,14 @@ class Curso{
     //ejercicio 4
     
     
+<<<<<<< HEAD
+    //ejercicio 5   
+=======
     //ejercicio 5
     
     
         
+>>>>>>> ba149e8153d09bb1cc52a1a877f686376edac7f9
     def estudiantesAprobados(lista){
         def aprobados =[]
         int i=0,l=lista.size()
@@ -85,11 +89,22 @@ class Curso{
     
     
     //ejercicio 13
-    
-    
+    def ciudadesExceptoCatamarca(){
+        
+    }
     //ejercicio 14
-    
-    
+    def unDesastre(listaCurso){
+        boolean desastre = false
+        int cantEstudiantes = listaCurso.size()
+        int cantAprobados = this.estudiantesAprobados(listaCurso).size()
+        int cantDesaprobados = cantEstudiantes - cantAprobados 
+        if(cantDesaprobados == cantEstudiantes){
+            desastre = true
+        }else{
+            desastre = false
+        }
+        println "Desastre: " + desastre
+    }
     //ejercicio 15
     
     
@@ -130,4 +145,14 @@ class Curso{
         //Estudiantes
         curso1.porcentajeDeAprobados(listaCurso)
         curso1.existeEstudianteConNotaDiez(listaCurso) 
+<<<<<<< HEAD
+=======
+=======
+        curso1.existeEstudianteConNotaDiez(listaCurso)
+        
+        curso1.promedioDeCalificaciones(listaCurso)
+        curso1.unDesastre(listaCurso)
+        
+>>>>>>> f49d541da9287dadba2c4b9c84c951b19de3d880
+>>>>>>> 343222a9e1310a9b57603479a95b49cfc5e95058
     }
