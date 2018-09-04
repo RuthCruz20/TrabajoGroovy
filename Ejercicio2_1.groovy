@@ -47,7 +47,16 @@ class Curso{
     //ejercicio 6
     
     //ejercicio7
-    
+    def existeEstudianteConNotaDiez(lista){
+        def alumnoDiez
+        int i=0,l=lista.size()
+        for(i = 0; i <l ; i++){
+             if( lista.get(i).getCalificacion()==10){
+              return true
+             }
+        }
+        return false 
+    }
     
     //ejercicio8
     
@@ -115,5 +124,6 @@ class Curso{
         println listaCurso.get(3).getNombre()
         
         curso1.porcentajeDeAprobados(listaCurso)
+        curso1.existeEstudianteConNotaDiez(listaCurso)
         
     }
