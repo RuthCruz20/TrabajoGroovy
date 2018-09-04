@@ -23,7 +23,6 @@ class Curso{
     
     //ejercicio2
     void agregarEstudiante(listaCurso, unEstudiante){
-         //listaCurso += unEstudiante
          listaCurso.add(unEstudiante)
     }
     
@@ -47,7 +46,21 @@ class Curso{
     
     
     //ejercicio9
-    
+    def porcentajeDeAprobados(listaCurso){
+        int cantAprobados = 0
+        int cantDesaprobados = 0  
+        int porcentajeAprobados = 0
+        int cantEstudiantes = listaCurso.size()//4
+        for(int i = 0; i < listaCurso.size(); i++){
+            if(listaCurso.get(i).getCalificacion() > 4){
+                cantAprobados += 1
+            }else{
+                cantDesaprobados += 1
+            }
+        }
+        porcentajeAprobados = (cantAprobados * 100) / cantEstudiantes 
+        println porcentajeAprobados
+    }
     //ejercicio10
     
     
@@ -72,9 +85,9 @@ class Curso{
  static main(args){
         def curso1 = new Curso()
         def listaCurso = []
-        def estudiante1 = new Estudiante('a_1',123,12,'Oruro',87)
-        def estudiante2 = new Estudiante('a_2',222,22,'Cbba',36)
-        def estudiante3 = new Estudiante('a_3',321,23,'Tucuman',66)
+        def estudiante1 = new Estudiante('a_1',123,12,'Oruro',7)
+        def estudiante2 = new Estudiante('a_2',222,22,'Cbba',3)
+        def estudiante3 = new Estudiante('a_3',321,23,'Tucuman',6)
        
         println estudiante2.getNombre()
         
@@ -83,7 +96,7 @@ class Curso{
         
         //agregarEstudiante
         curso1.agregarEstudiante(listaCurso, estudiante3)
-        def estudiante4 = new Estudiante('a_4',344,19,'Salta',66)
+        def estudiante4 = new Estudiante('a_4',344,19,'Salta',6)
         curso1.agregarEstudiante(listaCurso, estudiante4)
         print "Iteracion dentro de la lista = "+" "
         for(i = 0; i < listaCurso.size(); i++){
@@ -93,5 +106,7 @@ class Curso{
         println "Longitud lista = "+ listaCurso.size()
         println ''
         println listaCurso.get(3).getNombre()
+        
+        curso1.porcentajeDeAprobados(listaCurso)
         
     }
