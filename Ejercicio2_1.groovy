@@ -31,32 +31,45 @@ class Curso{
     
     
     //ejercicio 5
+<<<<<<< HEAD
     
     def estudiantesAprobados(){
         "hello $nombre"
+=======
+    def estudiantesAprobados(lista){
+        def aprobados =[]
+        int i=0,l=lista.size()
+        for(i = 0; i <l ; i++){
+             if( lista.get(i).getCalificacion()>4){
+              aprobados.add(lista.get(i))
+             }
+        }
+        aprobados
+>>>>>>> 87fd05d3c81e2c43f060d61a19ddd74d94262a4f
     }
     //ejercicio 6
     
     //ejercicio7
-    
+    def existeEstudianteConNotaDiez(lista){
+        def alumnoDiez
+        int i=0,l=lista.size()
+        for(i = 0; i <l ; i++){
+             if( lista.get(i).getCalificacion()==10){
+              return true
+             }
+        }
+        return false 
+    }
     
     //ejercicio8
     
     
     //ejercicio9
     def porcentajeDeAprobados(listaCurso){
-        int cantAprobados = 0
-        int cantDesaprobados = 0  
-        int porcentajeAprobados = 0
-        int cantEstudiantes = listaCurso.size()//4
-        for(int i = 0; i < listaCurso.size(); i++){
-            if(listaCurso.get(i).getCalificacion() > 4){
-                cantAprobados += 1
-            }else{
-                cantDesaprobados += 1
-            }
-        }
-        porcentajeAprobados = (cantAprobados * 100) / cantEstudiantes 
+        int cantEstudiantes = listaCurso.size()
+        int cantAprobados = this.estudiantesAprobados(listaCurso).size()
+        int cantDesaprobados = cantEstudiantes - cantAprobados 
+        int porcentajeAprobados = (cantAprobados * 100) / cantEstudiantes 
         println porcentajeAprobados
     }
     //ejercicio10
@@ -111,5 +124,6 @@ class Curso{
         
         //Estudiantes
         curso1.porcentajeDeAprobados(listaCurso)
+        curso1.existeEstudianteConNotaDiez(listaCurso)
         
     }
