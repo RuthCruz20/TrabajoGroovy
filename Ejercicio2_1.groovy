@@ -36,20 +36,11 @@ class Curso{
     //ejercicio 4
     
     
-<<<<<<< HEAD
     //ejercicio 5   
-=======
-    //ejercicio 5
-<<<<<<< HEAD
 
-=======
-    
-    
-        
->>>>>>> ba149e8153d09bb1cc52a1a877f686376edac7f9
     def estudiantesAprobados(lista){
         def aprobados =[]
-        int i=0,l=lista.size()
+        int i=0,l=this.cantidadDeEstudiantesInscritos(lista)
         for(i = 0; i <l ; i++){
              if( lista.get(i).getCalificacion()>4){
               aprobados.add(lista.get(i))
@@ -62,7 +53,7 @@ class Curso{
     //ejercicio7
     def existeEstudianteConNotaDiez(lista){
         def alumnoDiez
-        int i=0,l=lista.size()
+        int i=0,l=this.cantidadDeEstudiantesInscritos(lista)
         for(i = 0; i <l ; i++){
              if( lista.get(i).getCalificacion()==10){
               return true
@@ -88,17 +79,34 @@ class Curso{
     //ejercicio 11
     def estudiantesNoCatamarquenios(lista){
         def noCatamarquenios =[]
-        int i=0,l=lista.size()
+        int i=0, l= this.cantidadDeEstudiantesInscritos(lista)
         for(i = 0; i <l ; i++){
-             if( lista.get(i).getCiudadNatal != "catamarca"){
-              aprobados.add(lista.get(i))
+             if( lista.get(i).getCiudadNatal().toUpperCase()!= 'CATAMARCA'){
+              noCatamarquenios.add(lista.get(i))
              }
         }
-        aprobados
+        noCatamarquenios
     }
     
     //ejercicio 12
-    
+    def calificacionMasFrecuente(lista){
+        def i=0, j=0, l= this.cantidadDeEstudiantesInscritos(lista)
+        def frecuenciaTemp, frecuenciaModa = 0, moda = -1; 
+        
+        for (i=0; i < l-1; i++){
+            frecuenciaTemp = 1
+            for(j = i+1 ; j<l; j++){
+                if(lista.get(i).getCalificacion() == lista.get(j).getCalificacion())
+                    frecuenciaTemp ++                
+            }
+            if(frecuenciaTemp > frecuenciaModa){
+                frecuenciaModa = frecuenciaTemp
+                moda = lista.get(i).getCalificacion()
+            }
+        }
+        //println "La calificacion: " + moda + " es mas frecuente y se repite: " + frecuenciaModa + " veces."
+        moda
+    }
     
     //ejercicio 13
     def ciudadesExceptoCatamarca(){
@@ -118,30 +126,37 @@ class Curso{
         println "Desastre: " + desastre
     }
     //ejercicio 15
-    
-    
+    def frecuenciaDeEdades(lista){
+        def mapa = [:]
+        
+        
+    } 
     
     
 }
  static main(args){
         def curso1 = new Curso()
         def listaCurso = []
-        def estudiante1 = new Estudiante('a_1',123,12,'Oruro',7)
-        def estudiante2 = new Estudiante('a_2',222,22,'Cbba',3)
-        def estudiante3 = new Estudiante('a_3',321,23,'Tucuman',6)
+        def estudiante1 = new Estudiante('a_1',123,12,'Oruro',5)
+        def estudiante2 = new Estudiante('a_2',222,22,'Catamarca',3)
+        def estudiante3 = new Estudiante('a_3',321,23,'Tucuman',5)
+        def estudiante8 = new Estudiante('a_8',321,23,'Tucuman',5)
+        def estudiante9 = new Estudiante('a_9',321,23,'Tucuman',6)
+        def estudiante10 = new Estudiante('a_10',321,23,'Tucuman',3)
+        def estudiante11 = new Estudiante('a_11',321,23,'Tucuman',10)
        
         println estudiante2.getNombre()
         
-        listaCurso += [estudiante1,estudiante2]
+        listaCurso += [estudiante1,estudiante2,estudiante8,estudiante9,estudiante10,estudiante11]
         println listaCurso.get(0).getNombre()
         
         //resetearNotas
-        curso1.resetearNotas(listaCurso)
-        println "Calificacion: " + listaCurso.get(0).getCalificacion()
+        /*curso1.resetearNotas(listaCurso)
+        println "Calificacion: " + listaCurso.get(0).getCalificacion()*/
         
         //agregarEstudiante
         curso1.agregarEstudiante(listaCurso, estudiante3)
-        def estudiante4 = new Estudiante('a_4',344,19,'Salta',6)
+        def estudiante4 = new Estudiante('a_4',344,19,'Salta',5)
         curso1.agregarEstudiante(listaCurso, estudiante4)
         print "Iteracion dentro de la lista = "+" "
         for(i = 0; i < listaCurso.size(); i++){
@@ -157,14 +172,13 @@ class Curso{
         //Estudiantes
         curso1.porcentajeDeAprobados(listaCurso)
         curso1.existeEstudianteConNotaDiez(listaCurso) 
-<<<<<<< HEAD
-=======
-=======
-        curso1.existeEstudianteConNotaDiez(listaCurso)
         
-        curso1.promedioDeCalificaciones(listaCurso)
+        //curso1.promedioDeCalificaciones(listaCurso)
         curso1.unDesastre(listaCurso)
         
->>>>>>> f49d541da9287dadba2c4b9c84c951b19de3d880
->>>>>>> 343222a9e1310a9b57603479a95b49cfc5e95058
+        /*/11 no catamarqueños, devuelve lista de Estudiante
+        curso1.estudiantesNoCatamarquenios(listaCurso).each{println it}*/
+        
+        //12 retorna la nota con mas frecuencia, ademas el metodo calcula la frecuencia
+        //curso1.calificacionMasFrecuente(listaCurso)
     }
