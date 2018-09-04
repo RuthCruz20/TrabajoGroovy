@@ -31,11 +31,7 @@ class Curso{
     
     
     //ejercicio 5
-<<<<<<< HEAD
-    
-    def estudiantesAprobados(){
-        "hello $nombre"
-=======
+
     def estudiantesAprobados(lista){
         def aprobados =[]
         int i=0,l=lista.size()
@@ -45,7 +41,6 @@ class Curso{
              }
         }
         aprobados
->>>>>>> 87fd05d3c81e2c43f060d61a19ddd74d94262a4f
     }
     //ejercicio 6
     
@@ -76,7 +71,16 @@ class Curso{
     
     
     //ejercicio 11
-    
+    def estudiantesNoCatamarquenios(lista){
+        def noCatamarquenios =[]
+        int i=0,l=lista.size()
+        for(i = 0; i <l ; i++){
+             if( lista.get(i).getCiudadNatal != "catamarca"){
+              aprobados.add(lista.get(i))
+             }
+        }
+        aprobados
+    }
     
     //ejercicio 12
     
