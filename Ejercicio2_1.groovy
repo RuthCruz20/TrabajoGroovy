@@ -107,14 +107,9 @@ class Curso{
         println ""
         println ''
         println listaCurso.get(3).getNombre()
-        
-<<<<<<< HEAD
-        //Cantidad Estudiantes
-        println "Estudiantes Inscritos: " + listaCurso.size()
+
         
         //Estudiantes
-=======
         curso1.porcentajeDeAprobados(listaCurso)
->>>>>>> 2e86e6c160e35a966b01717b3db256a00edd9954
         
     }
