@@ -35,8 +35,15 @@ class Curso{
     
     //ejercicio 5
     
-    def estudiantesAprobados(){
-        "hello $nombre"
+    def estudiantesAprobados(lista){
+        def aprobados =[]
+        int i=0,l=lista.size()
+        for(i = 0; i <l ; i++){
+             if( lista.get(i).getCalificacion()>4){
+              aprobados.add(lista.get(i))
+             }
+        }
+        aprobados
     }
     //ejercicio 6
     
