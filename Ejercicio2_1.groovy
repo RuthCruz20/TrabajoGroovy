@@ -15,6 +15,7 @@ class Estudiante{
 }
 class Curso{
     def Curso (){}
+    
     //ejercicio 1
     void resetearNotas(listaEst){
       for(int i=0; i<listaEst.size(); i++){
@@ -25,6 +26,11 @@ class Curso{
     //ejercicio2
     void agregarEstudiante(listaCurso, unEstudiante){
          listaCurso.add(unEstudiante)
+    }
+    
+    //ejercicio 3
+    def cantidadDeEstudiantesInscritos(listaEstud){
+    listaEstud.size()
     }
     
     //ejercicio 4
@@ -67,19 +73,11 @@ class Curso{
         int cantAprobados = this.estudiantesAprobados(listaCurso).size()
         int cantDesaprobados = cantEstudiantes - cantAprobados 
         int porcentajeAprobados = (cantAprobados * 100) / cantEstudiantes 
-        println porcentajeAprobados + "% Aprobados"
+        println porcentajeAprobados
     }
     //ejercicio10
-    def promedioDeCalificaciones(listaCurso){
-        int cantEstudiantes = listaCurso.size()
-        int sumaNotas = 0
-        def promedio = 0
-        for(int i = 0; i < listaCurso.size(); i++){
-            sumaNotas += listaCurso.get(i).getCalificacion()
-        }
-        promedio = sumaNotas / cantEstudiantes
-        println "Promedio Notas: " + promedio
-    }
+    
+    
     //ejercicio 11
     
     
@@ -127,16 +125,9 @@ class Curso{
         println listaCurso.get(3).getNombre()
 
         //Cantidad Estudiantes
-        println "Estudiantes Inscritos: " + listaCurso.size()
+        println "Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos(listaCurso)
         
         //Estudiantes
         curso1.porcentajeDeAprobados(listaCurso)
-<<<<<<< HEAD
         curso1.existeEstudianteConNotaDiez(listaCurso) 
-=======
-        curso1.existeEstudianteConNotaDiez(listaCurso)
-        
-        curso1.promedioDeCalificaciones(listaCurso)
-        
->>>>>>> f49d541da9287dadba2c4b9c84c951b19de3d880
     }
