@@ -13,26 +13,29 @@ class Estudiante{
     }
    
 }
-
 class Curso{
-    def Curso(){
-    
-    }
+    def Curso (){}
     //ejercicio 1
-    
+    void resetearNotas(listaEst){
+      for(int i=0; i<listaEst.size(); i++){
+      listaEst.get(i).setCalificacion(0)
+      }
+    }
     
     //ejercicio2
     void agregarEstudiante(listaCurso, unEstudiante){
          listaCurso.add(unEstudiante)
     }
     
-    //ejercicio 3
-    
-    
     //ejercicio 4
     
     
     //ejercicio 5
+<<<<<<< HEAD
+    
+    def estudiantesAprobados(){
+        "hello $nombre"
+=======
     def estudiantesAprobados(lista){
         def aprobados =[]
         int i=0,l=lista.size()
@@ -42,6 +45,7 @@ class Curso{
              }
         }
         aprobados
+>>>>>>> 87fd05d3c81e2c43f060d61a19ddd74d94262a4f
     }
     //ejercicio 6
     
@@ -109,6 +113,10 @@ class Curso{
         listaCurso += [estudiante1,estudiante2]
         println listaCurso.get(0).getNombre()
         
+        //resetearNotas
+        curso1.resetearNotas(listaCurso)
+        println "Calificacion: " + listaCurso.get(0).getCalificacion()
+        
         //agregarEstudiante
         curso1.agregarEstudiante(listaCurso, estudiante3)
         def estudiante4 = new Estudiante('a_4',344,19,'Salta',6)
@@ -118,10 +126,11 @@ class Curso{
              print listaCurso.get(i).getCiudadNatal() + " "
         }
         println ""
-        println "Longitud lista = "+ listaCurso.size()
         println ''
         println listaCurso.get(3).getNombre()
+
         
+        //Estudiantes
         curso1.porcentajeDeAprobados(listaCurso)
         curso1.existeEstudianteConNotaDiez(listaCurso)
         
