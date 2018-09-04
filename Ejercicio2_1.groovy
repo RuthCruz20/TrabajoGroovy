@@ -30,7 +30,14 @@ class Curso{
     //ejercicio 4
     
     
+<<<<<<< HEAD
     //ejercicio 5   
+=======
+    //ejercicio 5
+    
+    
+        
+>>>>>>> ba149e8153d09bb1cc52a1a877f686376edac7f9
     def estudiantesAprobados(lista){
         def aprobados =[]
         int i=0,l=lista.size()
@@ -134,12 +141,18 @@ class Curso{
         println ''
         println listaCurso.get(3).getNombre()
 
+        //Cantidad Estudiantes
+        println "Estudiantes Inscritos: " + listaCurso.size()
         
         //Estudiantes
         curso1.porcentajeDeAprobados(listaCurso)
+<<<<<<< HEAD
+        curso1.existeEstudianteConNotaDiez(listaCurso) 
+=======
         curso1.existeEstudianteConNotaDiez(listaCurso)
         
         curso1.promedioDeCalificaciones(listaCurso)
         curso1.unDesastre(listaCurso)
         
+>>>>>>> f49d541da9287dadba2c4b9c84c951b19de3d880
     }
