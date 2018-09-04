@@ -18,7 +18,7 @@ class Curso{
     
     //ejercicio 1
     void resetearNotas(listaEst){
-      for(int i=0; i<listaEst.size(); i++){
+      for(int i=0; i<cantidadDeEstudiantesInscritos(listaEst); i++){
       listaEst.get(i).setCalificacion(0)
       }
     }
@@ -34,7 +34,11 @@ class Curso{
     }
     
     //ejercicio 4
-    
+    def estudiantes(listaEst){
+        for(int i=0; i<cantidadDeEstudiantesInscritos(listaEst); i++){
+            print listaEst.get(i).getNombre()+ " "
+        }
+    }
     
     //ejercicio 5   
 
@@ -48,7 +52,12 @@ class Curso{
         }
         aprobados
     }
+    
     //ejercicio 6
+    def existeEstudiante(){
+    
+    }
+    
     
     //ejercicio7
     def existeEstudianteConNotaDiez(lista){
@@ -151,8 +160,8 @@ class Curso{
         println listaCurso.get(0).getNombre()
         
         //resetearNotas
-        /*curso1.resetearNotas(listaCurso)
-        println "Calificacion: " + listaCurso.get(0).getCalificacion()*/
+        curso1.resetearNotas(listaCurso)
+        println "Calificacion: " + listaCurso.get(0).getCalificacion()
         
         //agregarEstudiante
         curso1.agregarEstudiante(listaCurso, estudiante3)
@@ -170,6 +179,10 @@ class Curso{
         println "Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos(listaCurso)
         
         //Estudiantes
+        println "Estudiantes: " + curso1.estudiantes(listaCurso)
+        
+        
+        
         curso1.porcentajeDeAprobados(listaCurso)
         curso1.existeEstudianteConNotaDiez(listaCurso) 
         
