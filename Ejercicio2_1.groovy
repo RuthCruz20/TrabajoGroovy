@@ -33,7 +33,6 @@ class Curso{
     
     
     //ejercicio 5
-    
     def estudiantesAprobados(lista){
         def aprobados =[]
         int i=0,l=lista.size()
@@ -54,18 +53,10 @@ class Curso{
     
     //ejercicio9
     def porcentajeDeAprobados(listaCurso){
-        int cantAprobados = 0
-        int cantDesaprobados = 0  
-        int porcentajeAprobados = 0
-        int cantEstudiantes = listaCurso.size()//4
-        for(int i = 0; i < listaCurso.size(); i++){
-            if(listaCurso.get(i).getCalificacion() > 4){
-                cantAprobados += 1
-            }else{
-                cantDesaprobados += 1
-            }
-        }
-        porcentajeAprobados = (cantAprobados * 100) / cantEstudiantes 
+        int cantEstudiantes = listaCurso.size()
+        int cantAprobados = this.estudiantesAprobados(listaCurso).size()
+        int cantDesaprobados = cantEstudiantes - cantAprobados 
+        int porcentajeAprobados = (cantAprobados * 100) / cantEstudiantes 
         println porcentajeAprobados
     }
     //ejercicio10
