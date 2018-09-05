@@ -14,13 +14,12 @@ class Estudiante{
    
 }
 class Curso{
+    def lista = []
     def Curso (){}
     
     //ejercicio 1
-    void resetearNotas(listaEst){
-      for(int i=0; i<cantidadDeEstudiantesInscritos(listaEst); i++){
-      listaEst.get(i).setCalificacion(0)
-      }
+    void resetearNotas (){
+    this.lista.each{it.calificacion=0}
     }
     
     //ejercicio2
@@ -29,15 +28,13 @@ class Curso{
     }
     
     //ejercicio 3
-    def cantidadDeEstudiantesInscritos(listaEstud){
-    listaEstud.size()
+    def cantidadDeEstudiantesInscritos(){
+        this.lista.size()
     }
     
     //ejercicio 4
-    def estudiantes(listaEst){
-        for(int i=0; i<cantidadDeEstudiantesInscritos(listaEst); i++){
-            print listaEst.get(i).getNombre()+ " "
-        }
+    def estudiantes(){
+    return lista
     }
     
     //ejercicio 5   
@@ -160,8 +157,7 @@ class Curso{
         println listaCurso.get(0).getNombre()
         
         //resetearNotas
-        curso1.resetearNotas(listaCurso)
-        println "Calificacion: " + listaCurso.get(0).getCalificacion()
+        //curso1.resetearNotas()
         
         //agregarEstudiante
         curso1.agregarEstudiante(listaCurso, estudiante3)
@@ -176,7 +172,7 @@ class Curso{
         println listaCurso.get(3).getNombre()
 
         //Cantidad Estudiantes
-        println "Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos(listaCurso)
+        curso1.cantidadDeEstudiantesInscritos()
         
         //Estudiantes
         println "Estudiantes: " + curso1.estudiantes(listaCurso)
