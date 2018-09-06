@@ -39,9 +39,9 @@ class Curso{
     }
     
     //ejercicio 5  
-    def estudiantesAprobados(lista){
+    def estudiantesAprobados(){
         def aprobados = []
-        int i=0,l=this.cantidadDeEstudiantesInscritos(lista)
+        int i=0,l=this.cantidadDeEstudiantesInscritos()
         for(i = 0; i <l ; i++){
              if( lista.get(i).getCalificacion()>4){
               aprobados.add(lista.get(i))
@@ -79,6 +79,7 @@ class Curso{
         int porcentajeAprobados = (cantAprobados * 100) / cantEstudiantes 
         println porcentajeAprobados
     }
+    
     //ejercicio10
     def promedioDeCalificaciones(){
         int prom = 0, sumaNotas = 0
@@ -90,11 +91,11 @@ class Curso{
     }
     
     //ejercicio 11
-    def estudiantesNoCatamarquenios(lista){
+    def estudiantesNoCatamarquenios(){
         def noCatamarquenios =[]
-        int i=0, l= this.cantidadDeEstudiantesInscritos(lista)
+        int i=0, l= this.cantidadDeEstudiantesInscritos()
         for(i = 0; i <l ; i++){
-             if( lista.get(i).getCiudadNatal().toUpperCase()!= 'CATAMARCA'){
+             if(lista.get(i).ciudadNatal.toUpperCase()!= 'CATAMARCA'){
               noCatamarquenios.add(lista.get(i))
              }
         }
@@ -125,18 +126,18 @@ class Curso{
     def ciudadesExceptoCatamarca(){
         
     }
+    
     //ejercicio 14
-    def unDesastre(listaCurso){
+    def unDesastre(){
         boolean desastre = false
-        int cantEstudiantes = listaCurso.size()
-        int cantAprobados = this.estudiantesAprobados(listaCurso).size()
-        int cantDesaprobados = cantEstudiantes - cantAprobados 
-        if(cantDesaprobados == cantEstudiantes){
+        int cantAprobados = estudiantesAprobados().size()
+        int cantDesaprobados = this.cantidadDeEstudiantesInscritos() - estudiantesAprobados().size()
+        if(cantDesaprobados == cantidadDeEstudiantesInscritos()){
             desastre = true
         }else{
             desastre = false
         }
-        println "Desastre: " + desastre
+        println "14. Desastre: " + desastre
     }
     //ejercicio 15
     def frecuenciaDeEdades(lista){
@@ -167,7 +168,7 @@ class Curso{
         
         //agregarEstudiante
         curso1.agregarEstudiante(estudiante1)
-        def estudiante2 = new Estudiante('a_2',344,19,'Salta',6)
+        def estudiante2 = new Estudiante('a_2',344,19,'Cbba',6)
         curso1.agregarEstudiante(estudiante2)
          def estudiante3 = new Estudiante('a_3',344,19,'Salta',7)
         curso1.agregarEstudiante(estudiante3)
@@ -199,7 +200,7 @@ class Curso{
         //curso1.existeEstudianteConNotaDiez(listaCurso) 
         
         //curso1.promedioDeCalificaciones(listaCurso)
-        //curso1.unDesastre(listaCurso)
+        curso1.unDesastre()
         
         
         /*/11 no catamarqueños, devuelve lista de Estudiante
