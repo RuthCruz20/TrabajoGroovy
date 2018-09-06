@@ -35,10 +35,11 @@ class Curso{
     
     //ejercicio 4
     def estudiantes(){
-        lista
+        this.lista
     }
     
     //ejercicio 5  
+<<<<<<< HEAD
     def estudiantesAprobados(){
         def aprobados = []
         int i=0,l=this.cantidadDeEstudiantesInscritos()
@@ -49,10 +50,12 @@ class Curso{
         }
         aprobados
     }
+=======
+>>>>>>> cae21999b483bea059c8f3459dd059306e2eb3f7
     
     //ejercicio 6
-    def existeEstudiante(){
-        
+    def existeEstudiante(unEstudiante){
+        this.lista.contains(unEstudiante)
     }
     
     
@@ -69,8 +72,8 @@ class Curso{
     }
     
     //ejercicio8
-    def existeEstudianteLlamado(){
-    
+    def existeEstudianteLlamado(unNombre){
+        this.lista.contains(unNombre)
     }
     
     //ejercicio9
@@ -136,23 +139,13 @@ class Curso{
     }
     
     //ejercicio 14
-    def unDesastre(){
-        boolean desastre = false
-        int cantAprobados = estudiantesAprobados().size()
-        int cantDesaprobados = this.cantidadDeEstudiantesInscritos() - estudiantesAprobados().size()
-        if(cantDesaprobados == cantidadDeEstudiantesInscritos()){
-            desastre = true
-        }else{
-            desastre = false
-        }
-        println "14. Desastre: " + desastre
-    }
+   
     //ejercicio 15
-    def frecuenciaDeEdades(lista){
-        def mapa = [:]
+    //def frecuenciaDeEdades(lista){
+      //  def mapa = [:]
         
         
-    } 
+    //} 
     
     
 }
@@ -187,13 +180,38 @@ class Curso{
 
         //Cantidad Estudiantes
         println "Cantidad De Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos()
+<<<<<<< HEAD
          
+=======
+        
+        //Existe Estudiante
+        println "->" + curso1.existeEstudiante(estudiante1)
+        println "->" + curso1.existeEstudiante(estudiante2)
+        
+        //Lista Estudiantes
+        //println "Estudiantes: " + curso1.printLista()
+        
+        //ExisteEstudianteNombre
+        println "------>" + curso1.existeEstudianteLlamado(estudiante1.getNombre())
+        
+        //curso1.porcentajeDeAprobados(listaCurso)
+        //curso1.existeEstudianteConNotaDiez(listaCurso) 
+        
+        //curso1.promedioDeCalificaciones(listaCurso)
+        //curso1.unDesastre(listaCurso)
+>>>>>>> cae21999b483bea059c8f3459dd059306e2eb3f7
         println "Estudiantes: " + curso1.estudiantes()
         curso1.promedioDeCalificaciones()
         println "AprobaDOS "+ curso1.estudiantesAprobados().nombre
         //curso1.existeEstudianteConNotaDiez(listaCurso) 
+<<<<<<< HEAD
         curso1.porcentajeDeAprobados()
         curso1.unDesastre()
+=======
+        
+        //curso1.promedioDeCalificaciones(listaCurso)
+        //curso1.unDesastre()
+>>>>>>> cae21999b483bea059c8f3459dd059306e2eb3f7
         
         curso1.estudiantesNoCatamarquenios().nombre
         
