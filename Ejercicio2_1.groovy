@@ -22,9 +22,18 @@ class Curso{
     this.lista.each{it.calificacion=0}
     }
     //ejercicio2
+<<<<<<< HEAD
     void agregarEstudiante(unEstudiante){
          this.lista.add(unEstudiante)
     }  
+=======
+    void agregarEstudiante(listaCurso, unEstudiante){
+         listaCurso.add(unEstudiante)
+    }
+    //ejercicio 4
+    
+    //ejercicio 5   
+>>>>>>> 7b40c315b5134c5161864f2db4646537edb97568
     
     def printLista(){
         print "Iteracion dentro de la lista = "+" "
@@ -41,7 +50,7 @@ class Curso{
     
     //ejercicio 4
     def estudiantes(){
-    return lista
+    lista
     }
     
     //ejercicio 5   
@@ -180,9 +189,10 @@ class Curso{
         println listaCurso.get(3).getNombre()*/
 
         //Cantidad Estudiantes
-        curso1.cantidadDeEstudiantesInscritos()
+        println "Cantidad De Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos()
         
         //Estudiantes
+<<<<<<< HEAD
         //println "Estudiantes: " + curso1.estudiantes(listaCurso)
         
         //curso1.porcentajeDeAprobados(listaCurso)
@@ -193,6 +203,26 @@ class Curso{
         
         //curso1.promedioDeCalificaciones(listaCurso)
         //curso1.unDesastre(listaCurso)
+=======
+        println "Estudiantes: " + curso1.estudiantes()
+        
+        
+        
+        curso1.porcentajeDeAprobados(listaCurso)
+
+
+        curso1.existeEstudianteConNotaDiez(listaCurso) 
+
+        curso1.existeEstudianteConNotaDiez(listaCurso)
+
+        curso1.existeEstudianteConNotaDiez(listaCurso) 
+
+        
+        //curso1.promedioDeCalificaciones(listaCurso)
+        curso1.unDesastre(listaCurso)
+        
+
+>>>>>>> 7b40c315b5134c5161864f2db4646537edb97568
         
         /*/11 no catamarqueños, devuelve lista de Estudiante
         curso1.estudiantesNoCatamarquenios(listaCurso).each{println it}*/
