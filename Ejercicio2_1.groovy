@@ -35,32 +35,14 @@ class Curso{
     
     //ejercicio 4
     def estudiantes(){
-        lista
+        this.lista
     }
     
     //ejercicio 5  
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    def estudiantesAprobados(){
-=======
->>>>>>> 586899d0f17b5a0126557281e0219208cd764a51
->>>>>>> fdfbe06a8fc418ebd41d184bc708ddbea5c4a948
-    def estudiantesAprobados(lista){
->>>>>>> 827ad51f86b00d46fbdb08f1af37c4beb259e640
-        def aprobados = []
-        int i=0,l=this.cantidadDeEstudiantesInscritos()
-        for(i = 0; i <l ; i++){
-             if( lista.get(i).getCalificacion()>4){
-              aprobados.add(lista.get(i))
-             }
-        }
-        aprobados
-    }
     
     //ejercicio 6
-    def existeEstudiante(){
-        
+    def existeEstudiante(unEstudiante){
+        this.lista.contains(unEstudiante)
     }
     
     
@@ -77,8 +59,8 @@ class Curso{
     }
     
     //ejercicio8
-    def existeEstudianteLlamado(){
-    
+    def existeEstudianteLlamado(unNombre){
+        this.lista.contains(unNombre)
     }
     
     //ejercicio9
@@ -138,23 +120,13 @@ class Curso{
     }
     
     //ejercicio 14
-    def unDesastre(){
-        boolean desastre = false
-        int cantAprobados = estudiantesAprobados().size()
-        int cantDesaprobados = this.cantidadDeEstudiantesInscritos() - estudiantesAprobados().size()
-        if(cantDesaprobados == cantidadDeEstudiantesInscritos()){
-            desastre = true
-        }else{
-            desastre = false
-        }
-        println "14. Desastre: " + desastre
-    }
+   
     //ejercicio 15
-    def frecuenciaDeEdades(lista){
-        def mapa = [:]
+    //def frecuenciaDeEdades(lista){
+      //  def mapa = [:]
         
         
-    } 
+    //} 
     
     
 }
@@ -193,8 +165,15 @@ class Curso{
         //Cantidad Estudiantes
         println "Cantidad De Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos()
         
+        //Existe Estudiante
+        println "->" + curso1.existeEstudiante(estudiante1)
+        println "->" + curso1.existeEstudiante(estudiante2)
+        
         //Lista Estudiantes
         //println "Estudiantes: " + curso1.printLista()
+        
+        //ExisteEstudianteNombre
+        println "------>" + curso1.existeEstudianteLlamado(estudiante1.getNombre())
         
         //curso1.porcentajeDeAprobados(listaCurso)
         //curso1.existeEstudianteConNotaDiez(listaCurso) 
@@ -210,7 +189,7 @@ class Curso{
         //curso1.existeEstudianteConNotaDiez(listaCurso) 
         
         //curso1.promedioDeCalificaciones(listaCurso)
-        curso1.unDesastre()
+        //curso1.unDesastre()
         
         
         /*/11 no catamarqueños, devuelve lista de Estudiante
