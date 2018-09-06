@@ -19,15 +19,12 @@ class Curso{
     
     //ejercicio 1
     void resetearNotas (){
-    this.lista.each{it.calificacion=0}
+        this.lista.each{it.calificacion=0}
     }
     //ejercicio2
     void agregarEstudiante(listaCurso, unEstudiante){
          listaCurso.add(unEstudiante)
-    }
-    //ejercicio 4
-    
-    //ejercicio 5   
+    } 
     
     //ejercicio 3
     def cantidadDeEstudiantesInscritos(){
@@ -36,11 +33,10 @@ class Curso{
     
     //ejercicio 4
     def estudiantes(){
-    lista
+        lista
     }
     
     //ejercicio 5   
-
     def estudiantesAprobados(lista){
         def aprobados =[]
         int i=0,l=this.cantidadDeEstudiantesInscritos(lista)
@@ -54,7 +50,7 @@ class Curso{
     
     //ejercicio 6
     def existeEstudiante(){
-    
+        
     }
     
     
@@ -71,7 +67,9 @@ class Curso{
     }
     
     //ejercicio8
+    def existeEstudianteLlamado(){
     
+    }
     
     //ejercicio9
     def porcentajeDeAprobados(listaCurso){
