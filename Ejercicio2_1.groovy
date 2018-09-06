@@ -20,13 +20,6 @@ class Curso{
     void resetearNotas (){
         this.lista.each{it.calificacion=0}
     }
-<<<<<<< HEAD
-    //ejercicio2
-    void agregarEstudiante(listaCurso, unEstudiante){
-         listaCurso.add(unEstudiante)
-    } 
-=======
->>>>>>> 586899d0f17b5a0126557281e0219208cd764a51
     
     //ejercicio2
     void agregarEstudiante(unEstudiante){
@@ -45,11 +38,7 @@ class Curso{
         lista
     }
     
-<<<<<<< HEAD
-    //ejercicio 5   
-=======
     //ejercicio 5  
->>>>>>> 586899d0f17b5a0126557281e0219208cd764a51
     def estudiantesAprobados(lista){
         def aprobados = []
         int i=0,l=this.cantidadDeEstudiantesInscritos(lista)
