@@ -24,7 +24,7 @@ class Curso{
     //ejercicio2
     void agregarEstudiante(unEstudiante){
          this.lista.add(unEstudiante)
-         print "2. Estudiante " + unEstudiante.nombre +" aumentado"
+         print "2. Estudiante " + unEstudiante+" aumentado"
          println ''
     } 
      
@@ -39,15 +39,7 @@ class Curso{
     }
     
     //ejercicio 5  
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     def estudiantesAprobados(){
-=======
->>>>>>> 586899d0f17b5a0126557281e0219208cd764a51
->>>>>>> fdfbe06a8fc418ebd41d184bc708ddbea5c4a948
-    def estudiantesAprobados(lista){
->>>>>>> 827ad51f86b00d46fbdb08f1af37c4beb259e640
         def aprobados = []
         int i=0,l=this.cantidadDeEstudiantesInscritos()
         for(i = 0; i <l ; i++){
@@ -82,12 +74,12 @@ class Curso{
     }
     
     //ejercicio9
-    def porcentajeDeAprobados(listaCurso){
-        int cantEstudiantes = listaCurso.size()
-        int cantAprobados = this.estudiantesAprobados(listaCurso).size()
-        int cantDesaprobados = cantEstudiantes - cantAprobados 
+    def porcentajeDeAprobados(){
+        int cantEstudiantes = lista.size()
+        int cantAprobados = estudiantesAprobados().size()
+        int cantDesaprobados = cantidadDeEstudiantesInscritos() - cantAprobados 
         int porcentajeAprobados = (cantAprobados * 100) / cantEstudiantes 
-        println porcentajeAprobados
+        println "9. Porcentaje aprobados " + porcentajeAprobados + " %"
     }
     
     //ejercicio10
@@ -134,7 +126,13 @@ class Curso{
     
     //ejercicio 13
     def ciudadesExceptoCatamarca(){
+        def listaSinCatamarca = []
+        //for(int i = 0; i < estudiantes){
         
+        //}
+        def noCatamarca = lista.findAll {it.ciudadNatal.toLowerCase() != 'catamarca'}
+        def ciudades = noCatamarca.collect {it.ciudadNatal}
+        println "CITYS WE "+ ciudades
     }
     
     //ejercicio 14
@@ -180,39 +178,26 @@ class Curso{
         curso1.agregarEstudiante(estudiante1)
         def estudiante2 = new Estudiante('a_2',344,19,'Cbba',6)
         curso1.agregarEstudiante(estudiante2)
-         def estudiante3 = new Estudiante('a_3',344,19,'Salta',7)
+        def estudiante3 = new Estudiante('a_3',344,19,'Salta',1)
         curso1.agregarEstudiante(estudiante3)
-        /*print "Iteracion dentro de la lista = "+" "
-        for(i = 0; i < listaCurso.size(); i++){
-             print listaCurso.get(i).getCiudadNatal() + " "
-        }
-        println ""
-        println ''
-        println listaCurso.get(3).getNombre()*/
+        def estudiante4 = new Estudiante('a_4',344,19,'Catamarca',1)
+        curso1.agregarEstudiante(estudiante4)
+         def estudiante5 = new Estudiante('a_5',344,19,'Puno',1)
+        curso1.agregarEstudiante(estudiante5)
 
         //Cantidad Estudiantes
         println "Cantidad De Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos()
-        
-        //Lista Estudiantes
-        //println "Estudiantes: " + curso1.printLista()
-        
-        //curso1.porcentajeDeAprobados(listaCurso)
-        //curso1.existeEstudianteConNotaDiez(listaCurso) 
-        
-        //curso1.promedioDeCalificaciones(listaCurso)
-        //curso1.unDesastre(listaCurso)
+         
         println "Estudiantes: " + curso1.estudiantes()
-        
-        
-        //curso1.porcentajeDeAprobados(listaCurso)
         curso1.promedioDeCalificaciones()
-
+        println "AprobaDOS "+ curso1.estudiantesAprobados().nombre
         //curso1.existeEstudianteConNotaDiez(listaCurso) 
-        
-        //curso1.promedioDeCalificaciones(listaCurso)
+        curso1.porcentajeDeAprobados()
         curso1.unDesastre()
         
+        curso1.estudiantesNoCatamarquenios().nombre
         
+        curso1.ciudadesExceptoCatamarca()
         /*/11 no catamarqueños, devuelve lista de Estudiante
         curso1.estudiantesNoCatamarquenios(listaCurso).each{println it}*/
         
