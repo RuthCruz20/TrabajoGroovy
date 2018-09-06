@@ -25,11 +25,9 @@ class Curso{
     void agregarEstudiante(listaCurso, unEstudiante){
          listaCurso.add(unEstudiante)
     }
-<<<<<<< HEAD
     //ejercicio 4
     
     //ejercicio 5   
-=======
     
     //ejercicio 3
     def cantidadDeEstudiantesInscritos(){
@@ -38,12 +36,11 @@ class Curso{
     
     //ejercicio 4
     def estudiantes(){
-    return lista
+    lista
     }
     
     //ejercicio 5   
 
->>>>>>> 365066fcf3747aaa6542ed23524a2dfc2a970a37
     def estudiantesAprobados(lista){
         def aprobados =[]
         int i=0,l=this.cantidadDeEstudiantesInscritos(lista)
@@ -177,33 +174,31 @@ class Curso{
         println listaCurso.get(3).getNombre()
 
         //Cantidad Estudiantes
-        curso1.cantidadDeEstudiantesInscritos()
+        println "Cantidad De Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos()
         
         //Estudiantes
-        println "Estudiantes: " + curso1.estudiantes(listaCurso)
+        println "Estudiantes: " + curso1.estudiantes()
         
         
         
         curso1.porcentajeDeAprobados(listaCurso)
-<<<<<<< HEAD
+
 
         curso1.existeEstudianteConNotaDiez(listaCurso) 
 
         curso1.existeEstudianteConNotaDiez(listaCurso)
-=======
+
         curso1.existeEstudianteConNotaDiez(listaCurso) 
->>>>>>> 365066fcf3747aaa6542ed23524a2dfc2a970a37
+
         
         //curso1.promedioDeCalificaciones(listaCurso)
         curso1.unDesastre(listaCurso)
         
-<<<<<<< HEAD
+
         
-=======
         /*/11 no catamarqueños, devuelve lista de Estudiante
         curso1.estudiantesNoCatamarquenios(listaCurso).each{println it}*/
         
         //12 retorna la nota con mas frecuencia, ademas el metodo calcula la frecuencia
         //curso1.calificacionMasFrecuente(listaCurso)
->>>>>>> 365066fcf3747aaa6542ed23524a2dfc2a970a37
     }
