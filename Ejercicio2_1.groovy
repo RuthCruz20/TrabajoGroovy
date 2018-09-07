@@ -41,10 +41,9 @@ class Curso{
     //ejercicio 5  
     def estudiantesAprobados(){
         def aprobados = []
-        int i=0,l=this.cantidadDeEstudiantesInscritos()
-        for(i = 0; i <l ; i++){
-             if( lista.get(i).getCalificacion()>4){
-              aprobados.add(lista.get(i))
+        for (estudiante in this.lista){
+            if( estudiante.getCalificacion()>4){
+              aprobados.add(estudiante)
              }
         }
         aprobados
@@ -58,14 +57,12 @@ class Curso{
     
     //ejercicio7
     def existeEstudianteConNotaDiez(){
-        def alumnoDiez
-        int i=0,l=this.cantidadDeEstudiantesInscritos()
-        for(i = 0; i <l ; i++){
-             if( lista.get(i).getCalificacion()==10){
+        for (estudiante in this.lista){
+            if( estudiante.getCalificacion()==10){
               return true
              }
         }
-        return false 
+        return false
     }
     
     //ejercicio8
@@ -99,10 +96,9 @@ class Curso{
     //ejercicio 11
     def estudiantesNoCatamarquenios(){
         def noCatamarquenios =[]
-        int i=0, l= this.cantidadDeEstudiantesInscritos()
-        for(i = 0; i <l ; i++){
-             if(lista.get(i).ciudadNatal.toUpperCase()!= 'CATAMARCA'){
-              noCatamarquenios.add(lista.get(i))
+         for (estudiante in this.lista){
+            if( estudiante.getCiudadNatal().toUpperCase()!= 'CATAMARCA'){
+               noCatamarquenios.add(estudiante)
              }
         }
         noCatamarquenios
@@ -148,57 +144,47 @@ class Curso{
        return desastre
    }
     //ejercicio 15
-<<<<<<< HEAD
-    def frecuenciaDeEdades(lista){
+    def frecuenciaDeEdades(){
         def mapa = [:]
-        def i=0, j=0, l= this.cantidadDeEstudiantesInscritos(lista)
-        int frecuencia
-        String claveEdad 
+        def listaSet = [] as Set
+        int frecuencia=0
+        for (estudiante in this.lista)
+          listaSet.add(estudiante.getEdad())
         
-        for (i=0; i < l-1; i++){
-            frecuencia = 1
-            for(j = i+1 ; j<l; j++){
-                if(lista.get(i).getEdad() == lista.get(j).getEdad())
-                    frecuencia ++  
-                    println frecuencia              
-            }
-            claveEdad = 'Edad'+ lista.get(i).getEdad()
-            mapa <<[ claveEdad : frecuencia]
-            //mapa.claveEdad = lista.get(i).getEdad()
-        }
-        mapa.each { 
-        println it 
-        } 
-        mapa
+        listaSet.each{println it}
+        
+        for (edad in listaSet){
+            frecuencia=0
+            for (estudiante in this.lista){
+              if(estudiante.getEdad()==edad){
+                  frecuencia ++
+              }
+          }
+          println 'edad: '+edad+ '-- frec: '+frecuencia
+          
+          mapa <<[ edad : frecuencia]
+          
+          }
+          mapa.each {println it} 
+        
     } 
-    
-=======
-    //def frecuenciaDeEdades(lista){
-      //  def mapa = [:]
-       
-    //} 
->>>>>>> 5874b614413af46d6681137ef8ff24e002293463
     
 }
  static main(args){
         def curso1 = new Curso()
-<<<<<<< HEAD
-        def estudiante1 = new Estudiante('a_1',123,12,'Oruro',5)
         
-=======
->>>>>>> 6c3187961fdce760d29781728b03812a06e5dca2
         //agregarEstudiante
-        def estudiante1 = new Estudiante('a_1',123,12,'Oruro',5)
+        def estudiante1 = new Estudiante('a_1',123,19,'Oruro',5)
         curso1.agregarEstudiante(estudiante1)
-        def estudiante2 = new Estudiante('a_2',344,19,'Cbba',6)
+        def estudiante2 = new Estudiante('a_2',344,18,'Cbba',6)
         curso1.agregarEstudiante(estudiante2)
         def estudiante3 = new Estudiante('a_3',344,19,'Salta',1)
         curso1.agregarEstudiante(estudiante3)
-        def estudiante4 = new Estudiante('a_4',344,19,'Catamarca',10)
+        def estudiante4 = new Estudiante('a_4',344,17,'Catamarca',10)
         curso1.agregarEstudiante(estudiante4)
         def estudiante5 = new Estudiante('a_5',344,19,'Puno',1)
         curso1.agregarEstudiante(estudiante5)
-        def estudiante6 = new Estudiante('a_6',344,19,'Puno',1)
+        def estudiante6 = new Estudiante('a_6',344,17,'Puno',1)
         curso1.agregarEstudiante(estudiante6)
          def estudiante7 = new Estudiante('a_7',344,19,'Puno',1)
         curso1.agregarEstudiante(estudiante7)
@@ -216,35 +202,30 @@ class Curso{
         //Estudiantes
         println "4. Estudiantes: " + curso1.estudiantes()
         
-<<<<<<< HEAD
         //Aprobados
         println "5. Aprobados: "+ curso1.estudiantesAprobados().nombre
-=======
+
         println "5.- Estudiantes aprobados= "+ curso1.estudiantesAprobados()
->>>>>>> 6c3187961fdce760d29781728b03812a06e5dca2
+
         
         //Existe Estudiante
         println "6. " + curso1.existeEstudiante(estudiante1)
         println "6. " + curso1.existeEstudiante("estudiante")
         
-<<<<<<< HEAD
         //Nota Diez
         println "7. Estudiantes Con Nota Diez: " + curso1.existeEstudianteConNotaDiez() 
         
-=======
         
         println "7.- ConNota10= " + curso1.existeEstudianteConNotaDiez()
->>>>>>> 6c3187961fdce760d29781728b03812a06e5dca2
+
         //ExisteEstudianteNombre
         println "8. " + curso1.existeEstudianteLlamado(estudiante1.getNombre())
         println "8. " + curso1.existeEstudianteLlamado("lolo")
         
-<<<<<<< HEAD
         //curso1.promedioDeCalificaciones(listaCurso)
-=======
+
         //curso1.existeEstudianteConNotaDiez(listaCurso) 
         
->>>>>>> 6c3187961fdce760d29781728b03812a06e5dca2
         //curso1.unDesastre(listaCurso)
         
         curso1.porcentajeDeAprobados()
@@ -270,11 +251,8 @@ class Curso{
         //12 retorna la nota con mas frecuencia, ademas el metodo calcula la frecuencia
         //curso1.calificacionMasFrecuente(listaCurso)
         
-<<<<<<< HEAD
         //15 Retorna un mapa con clave la edad y como valor su frecuencia
-        curso1.frecuenciaDeEdades(listaCurso)
-=======
+        curso1.frecuenciaDeEdades()
         //resetearNotas
         curso1.resetearNotas()
->>>>>>> 5874b614413af46d6681137ef8ff24e002293463
     }
