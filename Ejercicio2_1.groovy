@@ -39,7 +39,6 @@ class Curso{
     }
     
     //ejercicio 5  
-<<<<<<< HEAD
     def estudiantesAprobados(){
         def aprobados = []
         int i=0,l=this.cantidadDeEstudiantesInscritos()
@@ -50,8 +49,6 @@ class Curso{
         }
         aprobados
     }
-=======
->>>>>>> cae21999b483bea059c8f3459dd059306e2eb3f7
     
     //ejercicio 6
     def existeEstudiante(unEstudiante){
@@ -139,7 +136,16 @@ class Curso{
     }
     
     //ejercicio 14
-   
+   def unDesastre(){
+       boolean desastre = false
+       int estDesaprobados = cantidadDeEstudiantesInscritos() -  estudiantesAprobados().size()
+       if(estDesaprobados ==  estudiantesAprobados().size()){
+           desastre = true
+       }else{
+           desastre = false
+       }
+       return desastre
+   }
     //ejercicio 15
     //def frecuenciaDeEdades(lista){
       //  def mapa = [:]
@@ -175,14 +181,15 @@ class Curso{
         curso1.agregarEstudiante(estudiante3)
         def estudiante4 = new Estudiante('a_4',344,19,'Catamarca',1)
         curso1.agregarEstudiante(estudiante4)
-         def estudiante5 = new Estudiante('a_5',344,19,'Puno',1)
+        def estudiante5 = new Estudiante('a_5',344,19,'Puno',1)
         curso1.agregarEstudiante(estudiante5)
+        def estudiante6 = new Estudiante('a_6',344,19,'Puno',1)
+        curso1.agregarEstudiante(estudiante6)
+         def estudiante7 = new Estudiante('a_7',344,19,'Puno',1)
+        curso1.agregarEstudiante(estudiante7)
 
         //Cantidad Estudiantes
         println "Cantidad De Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos()
-<<<<<<< HEAD
-         
-=======
         
         //Existe Estudiante
         println "->" + curso1.existeEstudiante(estudiante1)
@@ -199,19 +206,16 @@ class Curso{
         
         //curso1.promedioDeCalificaciones(listaCurso)
         //curso1.unDesastre(listaCurso)
->>>>>>> cae21999b483bea059c8f3459dd059306e2eb3f7
         println "Estudiantes: " + curso1.estudiantes()
         curso1.promedioDeCalificaciones()
         println "AprobaDOS "+ curso1.estudiantesAprobados().nombre
         //curso1.existeEstudianteConNotaDiez(listaCurso) 
-<<<<<<< HEAD
         curso1.porcentajeDeAprobados()
-        curso1.unDesastre()
-=======
+       
+        println "14. Desastre: " + curso1.unDesastre()
         
         //curso1.promedioDeCalificaciones(listaCurso)
         //curso1.unDesastre()
->>>>>>> cae21999b483bea059c8f3459dd059306e2eb3f7
         
         curso1.estudiantesNoCatamarquenios().nombre
         
