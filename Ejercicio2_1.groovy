@@ -151,7 +151,6 @@ class Curso{
         for (estudiante in this.lista)
           listaSet.add(estudiante.getEdad())
         
-        listaSet.each{println it}
         
         for (edad in listaSet){
             frecuencia=0
@@ -160,12 +159,10 @@ class Curso{
                   frecuencia ++
               }
           }
-          println 'edad: '+edad+ '-- frec: '+frecuencia
-          
-          mapa <<[ edad : frecuencia]
+          mapa <<[ "$edad Años ": frecuencia]
           
           }
-          mapa.each {println it} 
+          mapa
         
     } 
     
@@ -252,7 +249,7 @@ class Curso{
         //curso1.calificacionMasFrecuente(listaCurso)
         
         //15 Retorna un mapa con clave la edad y como valor su frecuencia
-        curso1.frecuenciaDeEdades()
+        curso1.frecuenciaDeEdades().each {println it} 
         //resetearNotas
         curso1.resetearNotas()
     }
