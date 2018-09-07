@@ -24,7 +24,7 @@ class Curso{
     //ejercicio2
     void agregarEstudiante(unEstudiante){
          this.lista.add(unEstudiante)
-         print "2. Estudiante " + unEstudiante+" aumentado"
+         print "2. Estudiante " + unEstudiante.nombre+" aumentado"
          println ''
     } 
      
@@ -75,10 +75,9 @@ class Curso{
     
     //ejercicio9
     def porcentajeDeAprobados(){
-        int cantEstudiantes = lista.size()
         int cantAprobados = estudiantesAprobados().size()
         int cantDesaprobados = cantidadDeEstudiantesInscritos() - cantAprobados 
-        int porcentajeAprobados = (cantAprobados * 100) / cantEstudiantes 
+        int porcentajeAprobados = (cantAprobados * 100) /  cantidadDeEstudiantesInscritos()  
         println "9. Porcentaje aprobados " + porcentajeAprobados + " %"
     }
     
@@ -127,12 +126,9 @@ class Curso{
     //ejercicio 13
     def ciudadesExceptoCatamarca(){
         def listaSinCatamarca = []
-        //for(int i = 0; i < estudiantes){
-        
-        //}
         def noCatamarca = lista.findAll {it.ciudadNatal.toLowerCase() != 'catamarca'}
         def ciudades = noCatamarca.collect {it.ciudadNatal}
-        println "CITYS WE "+ ciudades
+        println "13. "+ ciudades.toUnique()
     }
     
     //ejercicio 14
@@ -201,25 +197,18 @@ class Curso{
         //ExisteEstudianteNombre
         println "------>" + curso1.existeEstudianteLlamado(estudiante1.getNombre())
         
-        //curso1.porcentajeDeAprobados(listaCurso)
         //curso1.existeEstudianteConNotaDiez(listaCurso) 
         
         //curso1.promedioDeCalificaciones(listaCurso)
         //curso1.unDesastre(listaCurso)
         println "Estudiantes: " + curso1.estudiantes()
-        curso1.promedioDeCalificaciones()
-        println "AprobaDOS "+ curso1.estudiantesAprobados().nombre
-        //curso1.existeEstudianteConNotaDiez(listaCurso) 
+        
+        println "Aprobados "+ curso1.estudiantesAprobados().nombre
         curso1.porcentajeDeAprobados()
-       
-        println "14. Desastre: " + curso1.unDesastre()
-        
-        //curso1.promedioDeCalificaciones(listaCurso)
-        //curso1.unDesastre()
-        
+        curso1.promedioDeCalificaciones()
         curso1.estudiantesNoCatamarquenios().nombre
-        
         curso1.ciudadesExceptoCatamarca()
+        println "14. Desastre: " + curso1.unDesastre()
         /*/11 no catamarqueños, devuelve lista de Estudiante
         curso1.estudiantesNoCatamarquenios(listaCurso).each{println it}*/
         
