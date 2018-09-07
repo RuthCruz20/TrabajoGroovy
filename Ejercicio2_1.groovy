@@ -57,9 +57,9 @@ class Curso{
     
     
     //ejercicio7
-    def existeEstudianteConNotaDiez(lista){
+    def existeEstudianteConNotaDiez(){
         def alumnoDiez
-        int i=0,l=this.cantidadDeEstudiantesInscritos(lista)
+        int i=0,l=this.cantidadDeEstudiantesInscritos()
         for(i = 0; i <l ; i++){
              if( lista.get(i).getCalificacion()==10){
               return true
@@ -109,8 +109,8 @@ class Curso{
     }
     
     //ejercicio 12
-    def calificacionMasFrecuente(lista){
-        def i=0, j=0, l= this.cantidadDeEstudiantesInscritos(lista)
+    def calificacionMasFrecuente(){
+        def i=0, j=0, l= this.cantidadDeEstudiantesInscritos()
         def frecuenciaTemp, frecuenciaModa = 0, moda = -1; 
         
         for (i=0; i < l-1; i++){
@@ -150,37 +150,20 @@ class Curso{
     //ejercicio 15
     //def frecuenciaDeEdades(lista){
       //  def mapa = [:]
-        
-        
+       
     //} 
-    
     
 }
  static main(args){
         def curso1 = new Curso()
-        def estudiante1 = new Estudiante('a_1',123,12,'Oruro',5)
-        /*def estudiante2 = new Estudiante('a_2',222,22,'Catamarca',3)
-        def estudiante3 = new Estudiante('a_3',321,23,'Tucuman',5)
-        def estudiante8 = new Estudiante('a_8',321,23,'Tucuman',5)
-        def estudiante9 = new Estudiante('a_9',321,23,'Tucuman',6)
-        def estudiante10 = new Estudiante('a_10',321,23,'Tucuman',3)
-        def estudiante11 = new Estudiante('a_11',321,23,'Tucuman',10)*/
-       
-        //println estudiante2.getNombre()
-        
-        /*listaCurso += [estudiante1,estudiante2,estudiante8,estudiante9,estudiante10,estudiante11]
-        println listaCurso.get(0).getNombre()*/
-        
-        //resetearNotas
-        //curso1.resetearNotas()
-        
         //agregarEstudiante
+        def estudiante1 = new Estudiante('a_1',123,12,'Oruro',5)
         curso1.agregarEstudiante(estudiante1)
         def estudiante2 = new Estudiante('a_2',344,19,'Cbba',6)
         curso1.agregarEstudiante(estudiante2)
         def estudiante3 = new Estudiante('a_3',344,19,'Salta',1)
         curso1.agregarEstudiante(estudiante3)
-        def estudiante4 = new Estudiante('a_4',344,19,'Catamarca',1)
+        def estudiante4 = new Estudiante('a_4',344,19,'Catamarca',10)
         curso1.agregarEstudiante(estudiante4)
         def estudiante5 = new Estudiante('a_5',344,19,'Puno',1)
         curso1.agregarEstudiante(estudiante5)
@@ -189,31 +172,53 @@ class Curso{
          def estudiante7 = new Estudiante('a_7',344,19,'Puno',1)
         curso1.agregarEstudiante(estudiante7)
 
+        
+        /*listaCurso += [estudiante1,estudiante2,estudiante8,estudiante9,estudiante10,estudiante11]
+        println listaCurso.get(0).getNombre()*/
+        
+        //resetearNotas
+        //curso1.resetearNotas()
+        
         //Cantidad Estudiantes
         println "3. Cantidad De Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos()
         
         //Estudiantes
         println "4. Estudiantes: " + curso1.estudiantes()
         
+        println "5.- Estudiantes aprobados= "+ curso1.estudiantesAprobados()
+        
         //Existe Estudiante
         println "6. " + curso1.existeEstudiante(estudiante1)
         println "6. " + curso1.existeEstudiante("estudiante")
         
+        
+        println "7.- ConNota10= " + curso1.existeEstudianteConNotaDiez()
         //ExisteEstudianteNombre
         println "8. " + curso1.existeEstudianteLlamado(estudiante1.getNombre())
         println "8. " + curso1.existeEstudianteLlamado("lolo")
         
         //curso1.existeEstudianteConNotaDiez(listaCurso) 
         
-        //curso1.promedioDeCalificaciones(listaCurso)
         //curso1.unDesastre(listaCurso)
         
         println "Aprobados "+ curso1.estudiantesAprobados().nombre
         curso1.porcentajeDeAprobados()
+        
+        //promedioclificaciones
         curso1.promedioDeCalificaciones()
+        
+        //ListaEstudiantesNoCatamarc
+        curso1.estudiantesNoCatamarquenios()
+        
+        //calificacionFrecuente
+        println "12.- CalificacionFrecuente = " + curso1.calificacionMasFrecuente()
+        
         curso1.estudiantesNoCatamarquenios().nombre
+        //ListaCiudadesEstudiantesSinCatamarca
         curso1.ciudadesExceptoCatamarca()
+        //Desastre
         println "14. Desastre: " + curso1.unDesastre()
+        
         /*/11 no catamarqueños, devuelve lista de Estudiante
         curso1.estudiantesNoCatamarquenios(listaCurso).each{println it}*/
         
