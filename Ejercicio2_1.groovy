@@ -70,7 +70,12 @@ class Curso{
     
     //ejercicio8
     def existeEstudianteLlamado(unNombre){
-        this.lista.contains(unNombre)
+        for(int i = 0; i <cantidadDeEstudiantesInscritos() ; i++){
+             if(this.lista.get(i).getNombre().contains(unNombre)){
+              return true
+             }
+        }
+        false 
     }
     
     //ejercicio9
@@ -185,23 +190,23 @@ class Curso{
         curso1.agregarEstudiante(estudiante7)
 
         //Cantidad Estudiantes
-        println "Cantidad De Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos()
+        println "3. Cantidad De Estudiantes Inscritos: " + curso1.cantidadDeEstudiantesInscritos()
+        
+        //Estudiantes
+        println "4. Estudiantes: " + curso1.estudiantes()
         
         //Existe Estudiante
-        println "->" + curso1.existeEstudiante(estudiante1)
-        println "->" + curso1.existeEstudiante(estudiante2)
-        
-        //Lista Estudiantes
-        //println "Estudiantes: " + curso1.printLista()
+        println "6. " + curso1.existeEstudiante(estudiante1)
+        println "6. " + curso1.existeEstudiante("estudiante")
         
         //ExisteEstudianteNombre
-        println "------>" + curso1.existeEstudianteLlamado(estudiante1.getNombre())
+        println "8. " + curso1.existeEstudianteLlamado(estudiante1.getNombre())
+        println "8. " + curso1.existeEstudianteLlamado("lolo")
         
         //curso1.existeEstudianteConNotaDiez(listaCurso) 
         
         //curso1.promedioDeCalificaciones(listaCurso)
         //curso1.unDesastre(listaCurso)
-        println "Estudiantes: " + curso1.estudiantes()
         
         println "Aprobados "+ curso1.estudiantesAprobados().nombre
         curso1.porcentajeDeAprobados()
