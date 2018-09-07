@@ -137,8 +137,25 @@ class Curso{
     //ejercicio 15
     def frecuenciaDeEdades(lista){
         def mapa = [:]
+        def i=0, j=0, l= this.cantidadDeEstudiantesInscritos(lista)
+        int frecuencia
+        String claveEdad 
         
-        
+        for (i=0; i < l-1; i++){
+            frecuencia = 1
+            for(j = i+1 ; j<l; j++){
+                if(lista.get(i).getEdad() == lista.get(j).getEdad())
+                    frecuencia ++  
+                    println frecuencia              
+            }
+            claveEdad = 'Edad'+ lista.get(i).getEdad()
+            mapa <<[ claveEdad : frecuencia]
+            //mapa.claveEdad = lista.get(i).getEdad()
+        }
+        mapa.each { 
+        println it 
+        } 
+        mapa
     } 
     
     
@@ -194,4 +211,7 @@ class Curso{
         
         //12 retorna la nota con mas frecuencia, ademas el metodo calcula la frecuencia
         //curso1.calificacionMasFrecuente(listaCurso)
+        
+        //15 Retorna un mapa con clave la edad y como valor su frecuencia
+        curso1.frecuenciaDeEdades(listaCurso)
     }
