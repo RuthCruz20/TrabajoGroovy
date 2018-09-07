@@ -57,9 +57,9 @@ class Curso{
     
     
     //ejercicio7
-    def existeEstudianteConNotaDiez(lista){
+    def existeEstudianteConNotaDiez(){
         def alumnoDiez
-        int i=0,l=this.cantidadDeEstudiantesInscritos(lista)
+        int i=0,l=this.cantidadDeEstudiantesInscritos()
         for(i = 0; i <l ; i++){
              if( lista.get(i).getCalificacion()==10){
               return true
@@ -159,20 +159,6 @@ class Curso{
  static main(args){
         def curso1 = new Curso()
         def estudiante1 = new Estudiante('a_1',123,12,'Oruro',5)
-        /*def estudiante2 = new Estudiante('a_2',222,22,'Catamarca',3)
-        def estudiante3 = new Estudiante('a_3',321,23,'Tucuman',5)
-        def estudiante8 = new Estudiante('a_8',321,23,'Tucuman',5)
-        def estudiante9 = new Estudiante('a_9',321,23,'Tucuman',6)
-        def estudiante10 = new Estudiante('a_10',321,23,'Tucuman',3)
-        def estudiante11 = new Estudiante('a_11',321,23,'Tucuman',10)*/
-       
-        //println estudiante2.getNombre()
-        
-        /*listaCurso += [estudiante1,estudiante2,estudiante8,estudiante9,estudiante10,estudiante11]
-        println listaCurso.get(0).getNombre()*/
-        
-        //resetearNotas
-        //curso1.resetearNotas()
         
         //agregarEstudiante
         curso1.agregarEstudiante(estudiante1)
@@ -195,20 +181,23 @@ class Curso{
         //Estudiantes
         println "4. Estudiantes: " + curso1.estudiantes()
         
+        //Aprobados
+        println "5. Aprobados: "+ curso1.estudiantesAprobados().nombre
+        
         //Existe Estudiante
         println "6. " + curso1.existeEstudiante(estudiante1)
         println "6. " + curso1.existeEstudiante("estudiante")
+        
+        //Nota Diez
+        println "7. Estudiantes Con Nota Diez: " + curso1.existeEstudianteConNotaDiez() 
         
         //ExisteEstudianteNombre
         println "8. " + curso1.existeEstudianteLlamado(estudiante1.getNombre())
         println "8. " + curso1.existeEstudianteLlamado("lolo")
         
-        //curso1.existeEstudianteConNotaDiez(listaCurso) 
-        
         //curso1.promedioDeCalificaciones(listaCurso)
         //curso1.unDesastre(listaCurso)
         
-        println "Aprobados "+ curso1.estudiantesAprobados().nombre
         curso1.porcentajeDeAprobados()
         curso1.promedioDeCalificaciones()
         curso1.estudiantesNoCatamarquenios().nombre
@@ -219,4 +208,7 @@ class Curso{
         
         //12 retorna la nota con mas frecuencia, ademas el metodo calcula la frecuencia
         //curso1.calificacionMasFrecuente(listaCurso)
+        
+        //resetearNotas
+        curso1.resetearNotas()
     }
