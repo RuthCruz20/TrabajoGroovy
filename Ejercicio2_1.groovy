@@ -56,23 +56,13 @@ class Curso{
     
     
     //ejercicio7
-    def existeEstudianteConNotaDiez(){
-        for (estudiante in this.lista){
-            if( estudiante.getCalificacion()==10){
-              return true
-             }
-        }
-        return false
+    boolean existeEstudianteConNotaDiez(){
+        return this.lista.any{it.calificacion==10}
     }
     
     //ejercicio8
-    def existeEstudianteLlamado(unNombre){
-        for(int i = 0; i <cantidadDeEstudiantesInscritos() ; i++){
-             if(this.lista.get(i).getNombre().contains(unNombre)){
-              return true
-             }
-        }
-        false 
+    boolean existeEstudianteLlamado(unNombre){
+        return this.lista.any{it.nombre.equals(unNombre)}
     }
     
     //ejercicio9
@@ -84,13 +74,9 @@ class Curso{
     }
     
     //ejercicio10
-    def promedioDeCalificaciones(){
-        int prom = 0, sumaNotas = 0
-        for(int i = 0 ; i < this.lista.size(); i++){
-            sumaNotas += lista.get(i).calificacion
-        }
-        prom = sumaNotas / cantidadDeEstudiantesInscritos()
-        println "10. Promedio calificaciones: " + prom
+    double promedioDeCalificaciones(){
+        def sumaNotas = this.lista.inject(0.0){suma,lista->suma+=lista.calificacion}
+        return sumaNotas/this.lista.size()
     }
     
     //ejercicio 11
@@ -228,7 +214,7 @@ class Curso{
         curso1.porcentajeDeAprobados()
         
         //promedioclificaciones
-        curso1.promedioDeCalificaciones()
+        println "10. Promedio Calificaciones: " + curso1.promedioDeCalificaciones()
         
         //ListaEstudiantesNoCatamarc
         curso1.estudiantesNoCatamarquenios()
