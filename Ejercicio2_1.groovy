@@ -41,10 +41,9 @@ class Curso{
     //ejercicio 5  
     def estudiantesAprobados(){
         def aprobados = []
-        int i=0,l=this.cantidadDeEstudiantesInscritos()
-        for(i = 0; i <l ; i++){
-             if( lista.get(i).getCalificacion()>4){
-              aprobados.add(lista.get(i))
+        for (estudiante in this.lista){
+            if( estudiante.getCalificacion()>4){
+              aprobados.add(estudiante)
              }
         }
         aprobados
@@ -57,25 +56,13 @@ class Curso{
     
     
     //ejercicio7
-    def existeEstudianteConNotaDiez(){
-        def alumnoDiez
-        int i=0,l=this.cantidadDeEstudiantesInscritos()
-        for(i = 0; i <l ; i++){
-             if( lista.get(i).getCalificacion()==10){
-              return true
-             }
-        }
-        return false 
+    boolean existeEstudianteConNotaDiez(){
+        return this.lista.any{it.calificacion==10}
     }
     
     //ejercicio8
-    def existeEstudianteLlamado(unNombre){
-        for(int i = 0; i <cantidadDeEstudiantesInscritos() ; i++){
-             if(this.lista.get(i).getNombre().contains(unNombre)){
-              return true
-             }
-        }
-        false 
+    boolean existeEstudianteLlamado(unNombre){
+        return this.lista.any{it.nombre.equals(unNombre)}
     }
     
     //ejercicio9
@@ -87,22 +74,17 @@ class Curso{
     }
     
     //ejercicio10
-    def promedioDeCalificaciones(){
-        int prom = 0, sumaNotas = 0
-        for(int i = 0 ; i < this.lista.size(); i++){
-            sumaNotas += lista.get(i).calificacion
-        }
-        prom = sumaNotas / cantidadDeEstudiantesInscritos()
-        println "10. Promedio calificaciones: " + prom
+    double promedioDeCalificaciones(){
+        def sumaNotas = this.lista.inject(0.0){suma,lista->suma+=lista.calificacion}
+        return sumaNotas/this.lista.size()
     }
     
     //ejercicio 11
     def estudiantesNoCatamarquenios(){
         def noCatamarquenios =[]
-        int i=0, l= this.cantidadDeEstudiantesInscritos()
-        for(i = 0; i <l ; i++){
-             if(lista.get(i).ciudadNatal.toUpperCase()!= 'CATAMARCA'){
-              noCatamarquenios.add(lista.get(i))
+         for (estudiante in this.lista){
+            if( estudiante.getCiudadNatal().toUpperCase()!= 'CATAMARCA'){
+               noCatamarquenios.add(estudiante)
              }
         }
         noCatamarquenios
@@ -148,26 +130,44 @@ class Curso{
        return desastre
    }
     //ejercicio 15
-    //def frecuenciaDeEdades(lista){
-      //  def mapa = [:]
-       
-    //} 
+    def frecuenciaDeEdades(){
+        def mapa = [:]
+        def listaSet = [] as Set
+        int frecuencia=0
+        for (estudiante in this.lista)
+          listaSet.add(estudiante.getEdad())
+        
+        
+        for (edad in listaSet){
+            frecuencia=0
+            for (estudiante in this.lista){
+              if(estudiante.getEdad()==edad){
+                  frecuencia ++
+              }
+          }
+          mapa <<[ "$edad Años ": frecuencia]
+          
+          }
+          mapa
+        
+    } 
     
 }
  static main(args){
         def curso1 = new Curso()
+        
         //agregarEstudiante
-        def estudiante1 = new Estudiante('a_1',123,12,'Oruro',5)
+        def estudiante1 = new Estudiante('a_1',123,19,'Oruro',5)
         curso1.agregarEstudiante(estudiante1)
-        def estudiante2 = new Estudiante('a_2',344,19,'Cbba',6)
+        def estudiante2 = new Estudiante('a_2',344,18,'Cbba',6)
         curso1.agregarEstudiante(estudiante2)
         def estudiante3 = new Estudiante('a_3',344,19,'Salta',1)
         curso1.agregarEstudiante(estudiante3)
-        def estudiante4 = new Estudiante('a_4',344,19,'Catamarca',10)
+        def estudiante4 = new Estudiante('a_4',344,17,'Catamarca',10)
         curso1.agregarEstudiante(estudiante4)
         def estudiante5 = new Estudiante('a_5',344,19,'Puno',1)
         curso1.agregarEstudiante(estudiante5)
-        def estudiante6 = new Estudiante('a_6',344,19,'Puno',1)
+        def estudiante6 = new Estudiante('a_6',344,17,'Puno',1)
         curso1.agregarEstudiante(estudiante6)
          def estudiante7 = new Estudiante('a_7',344,19,'Puno',1)
         curso1.agregarEstudiante(estudiante7)
@@ -185,23 +185,40 @@ class Curso{
         //Estudiantes
         println "4. Estudiantes: " + curso1.estudiantes()
         
+        //Aprobados
+        println "5. Aprobados: "+ curso1.estudiantesAprobados().nombre
+
         println "5.- Estudiantes aprobados= "+ curso1.estudiantesAprobados()
+
         
         //Existe Estudiante
         println "6. " + curso1.existeEstudiante(estudiante1)
         println "6. " + curso1.existeEstudiante("estudiante")
         
+        //Nota Diez
+        println "7. Estudiantes Con Nota Diez: " + curso1.existeEstudianteConNotaDiez() 
+        
         
         println "7.- ConNota10= " + curso1.existeEstudianteConNotaDiez()
+
         //ExisteEstudianteNombre
         println "8. " + curso1.existeEstudianteLlamado(estudiante1.getNombre())
         println "8. " + curso1.existeEstudianteLlamado("lolo")
         
+<<<<<<< HEAD
         println "Aprobados "+ curso1.estudiantesAprobados().nombre
+=======
+        //curso1.promedioDeCalificaciones(listaCurso)
+
+        //curso1.existeEstudianteConNotaDiez(listaCurso) 
+        
+        //curso1.unDesastre(listaCurso)
+        
+>>>>>>> f7e3039b7954c9ee7e995141479a33a83ec6c0d5
         curso1.porcentajeDeAprobados()
         
         //promedioclificaciones
-        curso1.promedioDeCalificaciones()
+        println "10. Promedio Calificaciones: " + curso1.promedioDeCalificaciones()
         
         //ListaEstudiantesNoCatamarc
         curso1.estudiantesNoCatamarquenios()
@@ -220,4 +237,9 @@ class Curso{
         
         //12 retorna la nota con mas frecuencia, ademas el metodo calcula la frecuencia
         //curso1.calificacionMasFrecuente(listaCurso)
+        
+        //15 Retorna un mapa con clave la edad y como valor su frecuencia
+        curso1.frecuenciaDeEdades().each {println it} 
+        //resetearNotas
+        curso1.resetearNotas()
     }
