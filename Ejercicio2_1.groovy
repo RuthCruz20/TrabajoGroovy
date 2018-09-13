@@ -197,10 +197,6 @@ class Curso{
         println "8. " + curso1.existeEstudianteLlamado(estudiante1.getNombre())
         println "8. " + curso1.existeEstudianteLlamado("lolo")
         
-        //curso1.existeEstudianteConNotaDiez(listaCurso) 
-        
-        //curso1.unDesastre(listaCurso)
-        
         println "Aprobados "+ curso1.estudiantesAprobados().nombre
         curso1.porcentajeDeAprobados()
         
